@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciro | Edición de video y webs para Instagram</title>
+  <meta name="description" content="Edición de video estratégica y páginas web para perfiles de Instagram. Trabajemos juntos.">
+  <meta name="theme-color" content="#07080b">
+  <!-- Vista previa al compartir: reemplazá TU-DOMINIO.com y creá media/og.jpg (1200x630) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ciro | Edición de video y webs para Instagram">
+  <meta property="og:description" content="Edición de video estratégica y webs para perfiles de Instagram. Agendá una llamada.">
+  <meta property="og:image" content="https://TU-DOMINIO.com/media/og.jpg">
+  <meta property="og:url" content="https://TU-DOMINIO.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<!-- HEADER (sticky + glassmorphism) -->
+<header class="header" id="header">
+  <a href="#inicio" class="logo">ciroiar</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+  <nav class="nav" id="nav">
+    <a href="#inicio">Inicio</a>
+    <a href="#portafolio">Portafolio</a>
+    <a href="#diseno">Diseño</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto" class="nav-cta">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <!-- Video de fondo (loop, sin audio). Archivo: media/web_vid2.mp4 -->
+    <div class="hero-bg" aria-hidden="true">
+      <video id="heroBg" autoplay muted loop playsinline preload="auto">
+        <source src="media/web_vid2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="glow glow-a"></div>
+    <div class="hero-text">
+      <h1 class="split">Edición de video estratégica para escalar tu marca</h1>
+      <p class="lead">Edito contenido que retiene, convence y vende. Y lo complemento con webs a medida para tu perfil de Instagram, para que cada visita termine en una acción.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Agendar llamada</a>
+        <a href="#portafolio" class="btn btn-ghost">Ver trabajos</a>
+      </div>
+    </div>
+    <!-- Trío de trabajos: al hacer clic abre el video con sonido -->
+    <div class="hero-stack">
+      <button type="button" class="stack-card s-left" data-video="Airos Agency Comprimido.mp4" aria-label="Ver video: Airos Agency"><img src="media/Airos%20Agency%20Comprimido%20MINIATURA.png" alt="Miniatura de Airos Agency"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <button type="button" class="stack-card s-right" data-video="Jose Regeasse Comprimido.mp4" aria-label="Ver video: Jose Regeasse"><img src="media/Jose%20Regeasse%20Comprimido%20MINIATURA.png" alt="Miniatura de Jose Regeasse"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <button type="button" class="stack-card s-center" data-video="Germán Ribero.mp4" aria-label="Ver video: Germán Ribero"><img src="media/Germ%C3%A1n%20Ribero%20MINIATURA.png" alt="Miniatura de Germán Ribero"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section class="section" id="portafolio">
+    <div class="section-head reveal">
+      <h2>Trabajos recientes</h2>
+      <p>Formatos verticales para Reels y TikTok, y piezas horizontales para YouTube y campañas.</p>
+    </div>
+    <div class="grid">
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Airos Agency" data-video="Airos Agency Comprimido.mp4" data-title="Airos Agency">
+        <img class="thumb" src="media/Airos%20Agency%20Comprimido%20MINIATURA.png" alt="Miniatura de Airos Agency" loading="lazy">
+        <div class="card-info"><h3>Airos Agency</h3><span>Despacho de abogados</span></div>
+      </article>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Germán Ribero" data-video="Germán Ribero.mp4" data-title="Germán Ribero">
+        <img class="thumb" src="media/Germ%C3%A1n%20Ribero%20MINIATURA.png" alt="Miniatura de Germán Ribero" loading="lazy">
+        <div class="card-info"><h3>Germán Ribero</h3><span>Especialista en ecommerce</span></div>
+      </article>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Jose Regeasse" data-video="Jose Regeasse Comprimido.mp4" data-title="Jose Regeasse">
+        <img class="thumb" src="media/Jose%20Regeasse%20Comprimido%20MINIATURA.png" alt="Miniatura de Jose Regeasse" loading="lazy">
+        <div class="card-info"><h3>Jose Regeasse</h3><span>Copywriter de ads</span></div>
+      </article>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Ciroiar · Reel 1" data-video="Ciroiar 1.mp4" data-title="Ciroiar · Reel 1">
+        <img class="thumb" src="media/Ciroiar%201%20MINIATURA.png" alt="Miniatura de Ciroiar · Reel 1" loading="lazy">
+        <div class="card-info"><h3>Ciroiar · Reel 1</h3><span>Contenido propio</span></div>
+      </article>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Ciroiar · Reel 2" data-video="Ciroiar 2.mp4" data-title="Ciroiar · Reel 2">
+        <img class="thumb" src="media/Ciroiar%202%20MINIATURA.png" alt="Miniatura de Ciroiar · Reel 2" loading="lazy">
+        <div class="card-info"><h3>Ciroiar · Reel 2</h3><span>Contenido propio</span></div>
+      </article>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Ciroiar · Reel 3" data-video="Ciroiar 3.mp4" data-title="Ciroiar · Reel 3">
+        <img class="thumb" src="media/Ciroiar%203%20MINIATURA.png" alt="Miniatura de Ciroiar · Reel 3" loading="lazy">
+        <div class="card-info"><h3>Ciroiar · Reel 3</h3><span>Contenido propio</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESO (video de la timeline) -->
+  <section class="section" id="proceso">
+    <div class="process">
+      <div class="process-video reveal">
+        <video id="timeline" muted loop playsinline preload="none" poster="media/Ciroiar%20TIMELINE%20MINIATURA.png" data-src="media/Ciroiar%20TIMELINE.mp4"></video>
+        <button class="sound-btn" id="soundBtn" type="button" aria-pressed="false">Activar sonido</button>
+      </div>
+      <div class="process-text reveal">
+        <h2>Así trabajo, sin atajos</h2>
+        <p>Cada pieza se construye en una línea de tiempo real: nada de plantillas ni automatismos. Este es el proceso detrás de los resultados.</p>
+        <ul class="steps">
+          <li><h3>Gancho</h3><p>Defino los primeros segundos para frenar el scroll.</p></li>
+          <li><h3>Ritmo</h3><p>Cortes, texto y movimiento al servicio de la retención.</p></li>
+          <li><h3>Sonido</h3><p>Música y efectos que sostienen la atención.</p></li>
+          <li><h3>Entrega</h3><p>Archivos listos para publicar, en tiempo y forma.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISEÑO DE INFOPRODUCTOS -->
+  <section class="section" id="diseno">
+    <div class="section-head reveal">
+      <h2>También diseño tu infoproducto</h2>
+      <p>Portadas, mockups de cursos, cajas, flyers y miniaturas. Piezas que hacen que tu producto se vea profesional antes de que alguien lo pruebe.</p>
+      <p class="case">Proyecto: Oriol Coach, coach de rupturas amorosas para mujeres.</p>
+    </div>
+    <div class="showcase">
+      <button type="button" class="shot stage reveal" aria-label="Ampliar: Diseño de infoproducto 1"><img src="media/Infoproducto%20_%201.png" alt="Diseño de infoproducto 1" loading="lazy"></button>
+      <button type="button" class="shot stage reveal" aria-label="Ampliar: Diseño de infoproducto 2"><img src="media/Infoproducto%20_%202.png" alt="Diseño de infoproducto 2" loading="lazy"></button>
+      <button type="button" class="shot stage reveal" aria-label="Ampliar: Diseño de infoproducto 3"><img src="media/Infoproducto%20_%203.png" alt="Diseño de infoproducto 3" loading="lazy"></button>
+      <button type="button" class="shot stage reveal" aria-label="Ampliar: Mockup de un curso digital"><img src="media/Mockup%20Curso.png" alt="Mockup de un curso digital" loading="lazy"></button>
+      <button type="button" class="shot stage reveal" aria-label="Ampliar: Diseño de caja de infoproducto"><img src="media/Infoproducto%20Caja%20_%201.png" alt="Diseño de caja de infoproducto" loading="lazy"></button>
+    </div>
+    <div class="flyers">
+      <button type="button" class="shot flyer reveal" aria-label="Ampliar: Flyer de clase virtual 1"><img src="media/Flyer%20Clase%20Virtual%20_%201.png" alt="Flyer de clase virtual 1" loading="lazy"></button>
+      <button type="button" class="shot flyer reveal" aria-label="Ampliar: Flyer de clase virtual 2"><img src="media/Flyer%20Clase%20Virtual%20_%202.png" alt="Flyer de clase virtual 2" loading="lazy"></button>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="section-head reveal">
+      <h2>Por qué mi edición convierte</h2>
+      <p>No edito para que se vea bien: edito para que la gente se quede, confíe y actúe.</p>
+    </div>
+    <div class="services">
+      <div class="service reveal">
+        <h3>Edición pensada para retención</h3>
+        <p>Ganchos en los primeros segundos, ritmo, sonido y subtítulos diseñados para que el espectador llegue hasta tu llamado a la acción.</p>
+      </div>
+      <div class="service reveal">
+        <h3>Identidad visual consistente</h3>
+        <p>Cada pieza refuerza tu marca. Tu contenido se reconoce antes de ver tu nombre.</p>
+      </div>
+      <div class="service featured reveal">
+        <h3>Webs para perfiles de Instagram</h3>
+        <p>Páginas link-in-bio avanzadas: rápidas, a medida y alineadas con tu marca. Presentan tu oferta, recogen contactos y llevan a tus seguidores a comprar o agendar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS / MÉTRICAS (reemplazá por resultados reales) -->
+  <section class="section" id="resultados">
+    <div class="section-head reveal"><h2>Resultados de clientes</h2></div>
+    <div class="testimonials">
+      <figure class="testi reveal">
+        <p class="metric" data-count="100" data-prefix="+" data-suffix="k">+100k</p><p class="metric-label">views en un solo Reel</p>
+        <blockquote>“Cambió por completo el ritmo de nuestro contenido. Pasamos de publicar a vender.”</blockquote>
+        <figcaption>Nombre Apellido, Marca</figcaption>
+      </figure>
+      <figure class="testi reveal">
+        <p class="metric" data-count="3" data-suffix="x">3x</p><p class="metric-label">más consultas por DM</p>
+        <blockquote>“Entendió el objetivo desde la primera llamada y entregó antes de lo previsto.”</blockquote>
+        <figcaption>Nombre Apellido, Marca</figcaption>
+      </figure>
+      <figure class="testi reveal">
+        <p class="metric" data-count="40" data-prefix="+" data-suffix="%">+40%</p><p class="metric-label">retención promedio</p>
+        <blockquote>“Cada video se siente premium. Nuestra audiencia lo nota.”</blockquote>
+        <figcaption>Nombre Apellido, Marca</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <!-- QUÉ PASA DESPUÉS DE AGENDAR -->
+  <section class="section" id="como-trabajamos">
+    <div class="section-head reveal">
+      <h2>Cómo trabajamos juntos</h2>
+      <p>Un proceso claro, sin sorpresas, desde la primera llamada hasta la entrega.</p>
+    </div>
+    <ol class="how">
+      <li class="reveal"><span class="how-n">1</span><h3>Llamada de 20 minutos</h3><p>Me contás tu objetivo y tu marca. Te digo con honestidad si puedo ayudarte.</p></li>
+      <li class="reveal"><span class="how-n">2</span><h3>Propuesta a medida</h3><p>Recibís alcance, plazos y condiciones por escrito, adaptados a tu proyecto.</p></li>
+      <li class="reveal"><span class="how-n">3</span><h3>Producción y entrega</h3><p>Trabajo con tu material, ajustamos lo necesario y recibís todo listo para publicar.</p></li>
+    </ol>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="section" id="faq">
+    <div class="section-head reveal"><h2>Preguntas frecuentes</h2></div>
+    <div class="faq reveal">
+      <details><summary>¿Cuánto cuesta?</summary><p>Depende del alcance: cantidad de piezas, complejidad y plazos. Después de la llamada te envío una propuesta con el valor exacto.</p></details>
+      <details><summary>¿Cuánto tardan las entregas?</summary><p>Se define en la propuesta según el volumen del proyecto. Siempre acordamos fechas antes de empezar.</p></details>
+      <details><summary>¿Qué necesito enviarte?</summary><p>Tu material en bruto, referencias que te gusten y el objetivo del contenido. Si todavía no tenés algo de eso, lo vemos en la llamada.</p></details>
+      <details><summary>¿Incluye revisiones?</summary><p>Sí. Las rondas de ajustes quedan acordadas en la propuesta para que ambos sepamos qué esperar.</p></details>
+      <details><summary>¿Hacés webs para Instagram?</summary><p>Sí. Creo páginas link-in-bio a medida, rápidas y alineadas con tu marca, para llevar a tus seguidores a comprar o agendar.</p></details>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section contact" id="contacto">
+    <div class="section-head reveal">
+      <h2>Agendá una llamada de 20 minutos</h2>
+      <p>Elegí el día y la hora que te quede cómodo. Hablamos de tu objetivo y te cuento si puedo ayudarte. Sin compromiso.</p>
+    </div>
+    <div class="booking reveal">
+      <ul class="booking-info">
+        <li><h3>20 minutos</h3><p>Una llamada corta y directa.</p></li>
+        <li><h3>Sin compromiso</h3><p>Si no soy la opción indicada, te lo digo.</p></li>
+        <li><h3>Respuesta rápida</h3><p>Recibís la confirmación en tu correo al instante.</p></li>
+        <a class="btn btn-ghost" id="calendarLink" href="https://instagram.com/ciroiar" target="_blank" rel="noopener">Prefiero escribir por Instagram</a>
+      </ul>
+      <!-- El calendario se carga acá (ver CALENDAR_URL en script.js) -->
+      <div class="booking-frame" id="bookingFrame">
+        <p class="booking-empty">Acá aparecerá tu calendario de reservas.<br>Pegá tu enlace en <code>CALENDAR_URL</code> dentro de <code>script.js</code>.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© <span id="year"></span> Ciro. Todos los derechos reservados.</p>
+  <div class="footer-links">
+    <a href="https://instagram.com/ciroiar" target="_blank" rel="noopener">Instagram @ciroiar</a>
+    <a href="mailto:hola@ciroiar.com">hola@ciroiar.com</a>
+  </div>
+</footer>
+
+<!-- MODAL de reproducción (con sonido) -->
+<dialog class="modal" id="modal" aria-label="Reproductor de video">
+  <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
+  <video id="modalVideo" controls playsinline preload="auto"></video>
+  <p class="modal-loading" id="modalLoading">Cargando…</p>
+</dialog>
+
+<!-- Botón flotante de WhatsApp (el número se configura en script.js) -->
+<a class="wa" id="waBtn" href="#contacto" target="_blank" rel="noopener" aria-label="Escribime por WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-tip">Escribime por WhatsApp</span>
+</a>
+
+<!-- Visor de imágenes -->
+<dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada"><img id="lightboxImg" alt=""></dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
