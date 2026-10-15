@@ -66,45 +66,50 @@
     </div>
     <!-- Trío de trabajos: al hacer clic abre el video con sonido -->
     <div class="hero-stack">
-      <button type="button" class="stack-card s-left" data-video="Airos Agency Comprimido.mp4" aria-label="Ver video: Airos Agency"><img src="media/Airos%20Agency%20Comprimido%20MINIATURA.png" alt="Miniatura de Airos Agency"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <span class="chip c1" aria-hidden="true">Edición</span><span class="chip c2" aria-hidden="true">Motion</span><span class="chip c3" aria-hidden="true">Web IG</span>
+      <button type="button" class="stack-card s-left" data-video="soyanadini.mp4" aria-label="Ver video: Soyanadini"><img src="media/soyanadini-miniatura.png" alt="Miniatura de Soyanadini"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
       <button type="button" class="stack-card s-right" data-video="Jose Regeasse Comprimido.mp4" aria-label="Ver video: Jose Regeasse"><img src="media/Jose%20Regeasse%20Comprimido%20MINIATURA.png" alt="Miniatura de Jose Regeasse"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
-      <button type="button" class="stack-card s-center" data-video="Germán Ribero.mp4" aria-label="Ver video: Germán Ribero"><img src="media/Germ%C3%A1n%20Ribero%20MINIATURA.png" alt="Miniatura de Germán Ribero"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
+      <button type="button" class="stack-card s-center" data-video="ciroiar-mejor.mp4" aria-label="Ver video: Mi mejor reel"><img src="media/ciroiar-mejor-miniatura.png" alt="Miniatura de Mi mejor reel"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
     </div>
   </section>
-
-  <!-- TIPOGRAFÍA CINÉTICA (reacciona a la velocidad del scroll) -->
-
 
   <!-- PORTAFOLIO -->
   <section class="section" id="portafolio">
     <div class="section-head reveal">
       <h2>Trabajos <em>recientes</em></h2>
-      <p>Formatos verticales para Reels y TikTok, y piezas horizontales para YouTube y campañas.</p>
+      <p>Cada marca necesita un estilo de edición distinto. Elegí uno y mirá cómo se ve.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar por estilo de edición">
+      <button type="button" class="fchip" data-filter="todos" aria-pressed="true">Todos</button>
+      <button type="button" class="fchip" data-filter="retencion" aria-pressed="false">Alta Retención</button>
+      <button type="button" class="fchip" data-filter="impacto" aria-pressed="false">Alto Impacto</button>
+      <button type="button" class="fchip" data-filter="premium" aria-pressed="false">Premium Minimalista</button>
+      <button type="button" class="fchip" data-filter="dinamico" aria-pressed="false">Dinámico</button>
     </div>
     <div class="grid">
-      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Airos Agency" data-video="Airos Agency Comprimido.mp4" data-title="Airos Agency">
-        <img class="thumb" src="media/Airos%20Agency%20Comprimido%20MINIATURA.png" alt="Miniatura de Airos Agency" loading="lazy">
-        <div class="card-info"><h3>Airos Agency</h3><span>Despacho de abogados</span></div>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver video: Edición Alta Retención" data-video="ciroiar-mejor.mp4" data-title="Edición Alta Retención" data-style="retencion">
+        <span class="badge">Mejor reel</span><img class="thumb" src="media/ciroiar-mejor-miniatura.png" alt="Miniatura: Edición Alta Retención" loading="lazy">
+        <div class="card-info"><h3>Edición Alta Retención</h3><span>Ciroiar · Mi mejor reel reciente</span></div>
       </article>
-      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Germán Ribero" data-video="Germán Ribero.mp4" data-title="Germán Ribero">
-        <img class="thumb" src="media/Germ%C3%A1n%20Ribero%20MINIATURA.png" alt="Miniatura de Germán Ribero" loading="lazy">
-        <div class="card-info"><h3>Germán Ribero</h3><span>Especialista en ecommerce</span></div>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver video: Estilo Dinámico" data-video="soyanadini.mp4" data-title="Estilo Dinámico" data-style="dinamico">
+        <img class="thumb" src="media/soyanadini-miniatura.png" alt="Miniatura: Estilo Dinámico" loading="lazy">
+        <div class="card-info"><h3>Estilo Dinámico</h3><span>Soyanadini · Marca de ropa · +350k seguidores</span></div>
       </article>
-      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Jose Regeasse" data-video="Jose Regeasse Comprimido.mp4" data-title="Jose Regeasse">
-        <img class="thumb" src="media/Jose%20Regeasse%20Comprimido%20MINIATURA.png" alt="Miniatura de Jose Regeasse" loading="lazy">
-        <div class="card-info"><h3>Jose Regeasse</h3><span>Copywriter de ads</span></div>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver video: Edición Alto Impacto" data-video="Jose Regeasse Comprimido.mp4" data-title="Edición Alto Impacto" data-style="impacto">
+        <img class="thumb" src="media/Jose%20Regeasse%20Comprimido%20MINIATURA.png" alt="Miniatura: Edición Alto Impacto" loading="lazy">
+        <div class="card-info"><h3>Edición Alto Impacto</h3><span>Jose Regeasse · Copywriter de ads</span></div>
       </article>
-      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Ciroiar · Reel 1" data-video="Ciroiar 1.mp4" data-title="Ciroiar · Reel 1">
-        <img class="thumb" src="media/Ciroiar%201%20MINIATURA.png" alt="Miniatura de Ciroiar · Reel 1" loading="lazy">
-        <div class="card-info"><h3>Ciroiar · Reel 1</h3><span>Contenido propio</span></div>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver video: Estilo Premium Minimalista" data-video="Germán Ribero.mp4" data-title="Estilo Premium Minimalista" data-style="premium">
+        <img class="thumb" src="media/Germ%C3%A1n%20Ribero%20MINIATURA.png" alt="Miniatura: Estilo Premium Minimalista" loading="lazy">
+        <div class="card-info"><h3>Estilo Premium Minimalista</h3><span>Germán Ribero · Ecommerce</span></div>
       </article>
-      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Ciroiar · Reel 2" data-video="Ciroiar 2.mp4" data-title="Ciroiar · Reel 2">
-        <img class="thumb" src="media/Ciroiar%202%20MINIATURA.png" alt="Miniatura de Ciroiar · Reel 2" loading="lazy">
-        <div class="card-info"><h3>Ciroiar · Reel 2</h3><span>Contenido propio</span></div>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver video: Storytelling dinámico" data-video="Ciroiar 1.mp4" data-title="Storytelling dinámico" data-style="retencion">
+        <img class="thumb" src="media/Ciroiar%201%20MINIATURA.png" alt="Miniatura: Storytelling dinámico" loading="lazy">
+        <div class="card-info"><h3>Storytelling dinámico</h3><span>Ciroiar · Contenido propio</span></div>
       </article>
-      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver Ciroiar · Reel 3" data-video="Ciroiar 3.mp4" data-title="Ciroiar · Reel 3">
-        <img class="thumb" src="media/Ciroiar%203%20MINIATURA.png" alt="Miniatura de Ciroiar · Reel 3" loading="lazy">
-        <div class="card-info"><h3>Ciroiar · Reel 3</h3><span>Contenido propio</span></div>
+      <article class="card tall reveal" tabindex="0" role="button" aria-label="Ver video: Vlog dinámico" data-video="Ciroiar 2.mp4" data-title="Vlog dinámico" data-style="retencion">
+        <img class="thumb" src="media/Ciroiar%202%20MINIATURA.png" alt="Miniatura: Vlog dinámico" loading="lazy">
+        <div class="card-info"><h3>Vlog dinámico</h3><span>Ciroiar · Contenido propio</span></div>
       </article>
     </div>
   </section>
