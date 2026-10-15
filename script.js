@@ -156,7 +156,7 @@ const counter = new IntersectionObserver(entries => entries.forEach(en => {
 document.querySelectorAll('[data-count]').forEach(el => counter.observe(el));
 
 /* ===== Luz que sigue al cursor dentro de las tarjetas ===== */
-document.querySelectorAll('.service, .testi, .booking-info li').forEach(el => {
+document.querySelectorAll('.service, .testi, .booking-info li, .how li, .faq details, .card, .shot').forEach(el => {
   el.addEventListener('pointermove', e => {
     const r = el.getBoundingClientRect();
     el.style.setProperty('--mx', `${e.clientX - r.left}px`);
@@ -217,28 +217,6 @@ else {
   setTimeout(() => introEl.remove(), 2900);
 }
 
-/* ===== Tipografía cinética: se desplaza sola y acelera con la velocidad del scroll ===== */
-const kinetic = document.getElementById('kinetic');
-const kRows = [...kinetic.querySelectorAll('.k-row')].map(row => {
-  const t = row.firstElementChild;
-  t.innerHTML = t.innerHTML.repeat(4);                // se repite para que el bucle no tenga huecos
-  return { t, dir: +row.dataset.dir, x: 0, init: false };
-});
-let kActive = false, lastY = scrollY, boost = 0;
-new IntersectionObserver(([e]) => kActive = e.isIntersecting).observe(kinetic);
-(function kTick() {
-  const dv = scrollY - lastY; lastY = scrollY;
-  boost = boost * 0.9 + Math.min(Math.abs(dv), 60) * 0.1;
-  if (kActive && !reduce) kRows.forEach(r => {
-    const w = r.t.scrollWidth / 4;
-    if (!r.init) { r.x = -w / 2; r.init = true; }
-    r.x += r.dir * (0.6 + boost);
-    if (r.x > 0) r.x -= w; else if (r.x < -w) r.x += w;
-    r.t.style.transform = `translate3d(${r.x}px,0,0)`;
-  });
-  requestAnimationFrame(kTick);
-})();
-
 /* ===== Cursor propio y botones magnéticos (solo con mouse) ===== */
 if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
   const cur = document.createElement('div');
@@ -261,6 +239,30 @@ if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
     el.addEventListener('pointerleave', () => el.style.translate = '');
   });
 }
+
+/* ===== Filtros del portafolio por estilo de edición ===== */
+const fchips = document.querySelectorAll('.fchip');
+fchips.forEach(btn => btn.addEventListener('click', () => {
+  fchips.forEach(o => o.setAttribute('aria-pressed', o === btn));
+  const f = btn.dataset.filter;
+  document.querySelectorAll('#portafolio .card').forEach(c => {
+    const show = f === 'todos' || c.dataset.style === f;
+    c.hidden = !show;
+    if (show) { c.classList.add('visible'); c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop'); }
+  });
+  document.querySelector('#portafolio .grid').scrollTo({ left: 0 });
+}));
+
+/* ===== Respaldo: si una miniatura no carga con .png, prueba con otras extensiones ===== */
+const exts = ['.png', '.jpg', '.jpeg', '.webp'];
+document.querySelectorAll('.card img, .stack-card img').forEach(img => {
+  const retry = () => {
+    const m = img.src.match(/(\.[a-z]+)$/i), i = exts.indexOf(m ? m[1].toLowerCase() : '');
+    if (i >= 0 && i < exts.length - 1) img.src = img.src.replace(/\.[a-z]+$/i, exts[i + 1]);
+  };
+  img.addEventListener('error', retry);
+  if (img.complete && img.naturalWidth === 0 && img.src) retry();
+});
 
 /* ===== Año del footer ===== */
 document.getElementById('year').textContent = new Date().getFullYear();
