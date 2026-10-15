@@ -10,6 +10,9 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   menuBtn.setAttribute('aria-expanded', false);
 }));
 
+document.addEventListener('click', e => { if (!nav.contains(e.target) && !menuBtn.contains(e.target)) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
+addEventListener('keydown', e => { if (e.key === 'Escape') { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); } });
+
 /* ===== Header: refuerza el fondo al hacer scroll ===== */
 const header = document.getElementById('header');
 addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 40), { passive: true });
@@ -101,15 +104,33 @@ soundBtn.addEventListener('click', () => {
    Google Calendar > Crear > Programación de citas. Al publicarla, copiá el enlace
    (el de "insertar en tu sitio web" o el enlace público) y pegalo acá. */
 const CALENDAR_URL = ''; // ej: 'https://calendar.google.com/calendar/appointments/schedules/XXXX?gv=true'
-if (CALENDAR_URL) {
-  const frame = document.getElementById('bookingFrame');
-  frame.innerHTML = `<iframe src="${CALENDAR_URL}" title="Agendar llamada" loading="lazy" style="border:0;width:100%;height:100%;min-height:620px"></iframe>`;
+if (/^https:\/\//.test(CALENDAR_URL)) { // solo acepta enlaces https
+  const f = document.createElement('iframe');
+  f.src = CALENDAR_URL; f.title = 'Agendar llamada'; f.loading = 'lazy';
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  f.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox');
+  f.style.cssText = 'border:0;width:100%;height:100%;min-height:620px';
+  document.getElementById('bookingFrame').replaceChildren(f);
 }
 
-/* ===== Titular: aparece palabra por palabra ===== */
-document.querySelectorAll('.split').forEach(el => {
-  el.innerHTML = el.textContent.trim().split(/\s+/).map((w, i) => `<span class="w"><span style="--i:${i}">${w}</span></span>`).join(' ');
-});
+/* ===== Email de contacto: no está escrito en el HTML, se arma acá (evita bots que recolectan correos) ===== */
+const CONTACT_EMAIL = ''; // ej: 'hola@tudominio.com'
+const mailLink = document.getElementById('mailLink');
+if (CONTACT_EMAIL) { mailLink.href = 'mailto:' + CONTACT_EMAIL; mailLink.textContent = CONTACT_EMAIL; mailLink.hidden = false; }
+
+/* ===== Titulares: aparecen palabra por palabra (conserva la palabra de acento <em>) ===== */
+function splitWords(el) {
+  let i = 0;
+  const wrap = (txt, tag) => txt.trim().split(/\s+/).filter(Boolean).map(w =>
+    `<span class="w"><span style="--i:${i++}">${tag ? `<${tag}>${w}</${tag}>` : w}</span></span>`).join(' ');
+  el.innerHTML = [...el.childNodes].map(n => n.nodeType === 3 ? wrap(n.textContent) : wrap(n.textContent, n.tagName.toLowerCase())).filter(Boolean).join(' ');
+}
+document.querySelectorAll('.split').forEach(splitWords);
+// Los títulos de sección se animan al entrar en pantalla
+const splitIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); splitIO.unobserve(e.target); }
+}), { threshold: 0.4 });
+document.querySelectorAll('.section-head h2, .process-text h2').forEach(el => { el.classList.add('split-h'); splitWords(el); splitIO.observe(el); });
 
 /* ===== Barra de progreso de scroll ===== */
 const bar = document.getElementById('progress');
@@ -184,6 +205,62 @@ new IntersectionObserver(([e]) => { e.isIntersecting ? playHero() : heroBg.pause
 heroBg.addEventListener('loadeddata', playHero);
 ['pointerdown', 'touchstart', 'scroll'].forEach(ev => addEventListener(ev, () => { if (heroBg.paused && !modal.open) playHero(); }, { once: true, passive: true })); // por si el navegador bloquea el autoplay
 heroBg.addEventListener('error', () => console.warn('No se pudo cargar el video de fondo (revisá media/web_vid2.mp4 y que esté en H.264).'));
+
+/* ===== Intro: una vez por sesión, y nunca con "reducir movimiento" ===== */
+const introEl = document.getElementById('intro');
+let introSeen = false;
+try { introSeen = !!sessionStorage.getItem('introSeen'); } catch (e) {}
+if (introSeen || reduce) introEl.remove();
+else {
+  document.documentElement.classList.add('intro-on');
+  try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
+  setTimeout(() => introEl.remove(), 2900);
+}
+
+/* ===== Tipografía cinética: se desplaza sola y acelera con la velocidad del scroll ===== */
+const kinetic = document.getElementById('kinetic');
+const kRows = [...kinetic.querySelectorAll('.k-row')].map(row => {
+  const t = row.firstElementChild;
+  t.innerHTML = t.innerHTML.repeat(4);                // se repite para que el bucle no tenga huecos
+  return { t, dir: +row.dataset.dir, x: 0, init: false };
+});
+let kActive = false, lastY = scrollY, boost = 0;
+new IntersectionObserver(([e]) => kActive = e.isIntersecting).observe(kinetic);
+(function kTick() {
+  const dv = scrollY - lastY; lastY = scrollY;
+  boost = boost * 0.9 + Math.min(Math.abs(dv), 60) * 0.1;
+  if (kActive && !reduce) kRows.forEach(r => {
+    const w = r.t.scrollWidth / 4;
+    if (!r.init) { r.x = -w / 2; r.init = true; }
+    r.x += r.dir * (0.6 + boost);
+    if (r.x > 0) r.x -= w; else if (r.x < -w) r.x += w;
+    r.t.style.transform = `translate3d(${r.x}px,0,0)`;
+  });
+  requestAnimationFrame(kTick);
+})();
+
+/* ===== Cursor propio y botones magnéticos (solo con mouse) ===== */
+if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+  const cur = document.createElement('div');
+  cur.className = 'cursor'; document.body.appendChild(cur);
+  let tx = -100, ty = -100, cx = tx, cy = ty;
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; cur.classList.add('on'); }, { passive: true });
+  document.addEventListener('mouseleave', () => cur.classList.remove('on'));
+  document.addEventListener('pointerover', e => {
+    const t = e.target.closest('.card, .stack-card, .shot'), a = e.target.closest('a, button, summary');
+    cur.classList.toggle('view', !!t); cur.classList.toggle('link', !t && !!a);
+    cur.dataset.label = t ? (t.classList.contains('shot') ? 'Ampliar' : 'Ver') : '';
+  });
+  (function loop() { cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18; cur.style.transform = `translate3d(${cx}px,${cy}px,0)`; requestAnimationFrame(loop); })();
+
+  document.querySelectorAll('.btn, .wa').forEach(el => {
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.translate = `${(e.clientX - r.left - r.width / 2) * 0.25}px ${(e.clientY - r.top - r.height / 2) * 0.35}px`;
+    });
+    el.addEventListener('pointerleave', () => el.style.translate = '');
+  });
+}
 
 /* ===== Año del footer ===== */
 document.getElementById('year').textContent = new Date().getFullYear();
