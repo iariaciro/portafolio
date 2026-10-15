@@ -13,13 +13,25 @@
   <meta property="og:image" content="https://TU-DOMINIO.com/media/og.jpg">
   <meta property="og:url" content="https://TU-DOMINIO.com/">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080b'/%3E%3Ctext x='32' y='44' font-size='36' font-family='Arial' font-weight='700' text-anchor='middle' fill='%237f8dff'%3EC%3C/text%3E%3C/svg%3E">
+  <meta name="robots" content="index,follow">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ciro | Edición de video","url":"https://TU-DOMINIO.com/","description":"Edición de video estratégica y webs para perfiles de Instagram.","sameAs":["https://instagram.com/ciroiar"]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="progress" id="progress"></div>
+<!-- INTRO: motion graphic de entrada (≈2,4 s, una vez por sesión) -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-words">
+    <span class="iw"><b>Edito.</b></span>
+    <span class="iw"><b><em>Diseño.</em></b></span>
+    <span class="iw"><b>Convierto.</b></span>
+  </div>
+  <i class="intro-panel p1"></i><i class="intro-panel p2"></i><i class="intro-panel p3"></i>
+</div>
 
 <!-- HEADER (sticky + glassmorphism) -->
 <header class="header" id="header">
@@ -45,8 +57,8 @@
     </div>
     <div class="glow glow-a"></div>
     <div class="hero-text">
-      <h1 class="split">Edición de video estratégica para escalar tu marca</h1>
-      <p class="lead">Edito contenido que retiene, convence y vende. Y lo complemento con webs a medida para tu perfil de Instagram, para que cada visita termine en una acción.</p>
+      <h1 class="split">Edición de video <em>estratégica</em> para escalar tu marca</h1>
+      <p class="lead">Edito contenido que <mark>retiene, convence y vende</mark>. Y lo complemento con webs a medida para tu perfil de Instagram, para que cada visita termine en una acción.</p>
       <div class="hero-actions">
         <a href="#contacto" class="btn btn-primary">Agendar llamada</a>
         <a href="#portafolio" class="btn btn-ghost">Ver trabajos</a>
@@ -54,16 +66,20 @@
     </div>
     <!-- Trío de trabajos: al hacer clic abre el video con sonido -->
     <div class="hero-stack">
+      <span class="chip c1" aria-hidden="true">Edición</span><span class="chip c2" aria-hidden="true">Motion</span><span class="chip c3" aria-hidden="true">Web IG</span>
       <button type="button" class="stack-card s-left" data-video="Airos Agency Comprimido.mp4" aria-label="Ver video: Airos Agency"><img src="media/Airos%20Agency%20Comprimido%20MINIATURA.png" alt="Miniatura de Airos Agency"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
       <button type="button" class="stack-card s-right" data-video="Jose Regeasse Comprimido.mp4" aria-label="Ver video: Jose Regeasse"><img src="media/Jose%20Regeasse%20Comprimido%20MINIATURA.png" alt="Miniatura de Jose Regeasse"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
       <button type="button" class="stack-card s-center" data-video="Germán Ribero.mp4" aria-label="Ver video: Germán Ribero"><img src="media/Germ%C3%A1n%20Ribero%20MINIATURA.png" alt="Miniatura de Germán Ribero"><span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></button>
     </div>
   </section>
 
+  <!-- TIPOGRAFÍA CINÉTICA (reacciona a la velocidad del scroll) -->
+
+
   <!-- PORTAFOLIO -->
   <section class="section" id="portafolio">
     <div class="section-head reveal">
-      <h2>Trabajos recientes</h2>
+      <h2>Trabajos <em>recientes</em></h2>
       <p>Formatos verticales para Reels y TikTok, y piezas horizontales para YouTube y campañas.</p>
     </div>
     <div class="grid">
@@ -102,7 +118,7 @@
         <button class="sound-btn" id="soundBtn" type="button" aria-pressed="false">Activar sonido</button>
       </div>
       <div class="process-text reveal">
-        <h2>Así trabajo, sin atajos</h2>
+        <h2>Así trabajo, <em>sin atajos</em></h2>
         <p>Cada pieza se construye en una línea de tiempo real: nada de plantillas ni automatismos. Este es el proceso detrás de los resultados.</p>
         <ul class="steps">
           <li><h3>Gancho</h3><p>Defino los primeros segundos para frenar el scroll.</p></li>
@@ -117,7 +133,7 @@
   <!-- DISEÑO DE INFOPRODUCTOS -->
   <section class="section" id="diseno">
     <div class="section-head reveal">
-      <h2>También diseño tu infoproducto</h2>
+      <h2>También diseño tu <em>infoproducto</em></h2>
       <p>Portadas, mockups de cursos, cajas, flyers y miniaturas. Piezas que hacen que tu producto se vea profesional antes de que alguien lo pruebe.</p>
       <p class="case">Proyecto: Oriol Coach, coach de rupturas amorosas para mujeres.</p>
     </div>
@@ -137,7 +153,7 @@
   <!-- SERVICIOS -->
   <section class="section" id="servicios">
     <div class="section-head reveal">
-      <h2>Por qué mi edición convierte</h2>
+      <h2>Por qué mi edición <em>convierte</em></h2>
       <p>No edito para que se vea bien: edito para que la gente se quede, confíe y actúe.</p>
     </div>
     <div class="services">
@@ -158,7 +174,7 @@
 
   <!-- TESTIMONIOS / MÉTRICAS (reemplazá por resultados reales) -->
   <section class="section" id="resultados">
-    <div class="section-head reveal"><h2>Resultados de clientes</h2></div>
+    <div class="section-head reveal"><h2>Resultados de <em>clientes</em></h2></div>
     <div class="testimonials">
       <figure class="testi reveal">
         <p class="metric" data-count="100" data-prefix="+" data-suffix="k">+100k</p><p class="metric-label">views en un solo Reel</p>
@@ -182,7 +198,7 @@
   <!-- QUÉ PASA DESPUÉS DE AGENDAR -->
   <section class="section" id="como-trabajamos">
     <div class="section-head reveal">
-      <h2>Cómo trabajamos juntos</h2>
+      <h2>Cómo trabajamos <em>juntos</em></h2>
       <p>Un proceso claro, sin sorpresas, desde la primera llamada hasta la entrega.</p>
     </div>
     <ol class="how">
@@ -194,7 +210,7 @@
 
   <!-- PREGUNTAS FRECUENTES -->
   <section class="section" id="faq">
-    <div class="section-head reveal"><h2>Preguntas frecuentes</h2></div>
+    <div class="section-head reveal"><h2>Preguntas <em>frecuentes</em></h2></div>
     <div class="faq reveal">
       <details><summary>¿Cuánto cuesta?</summary><p>Depende del alcance: cantidad de piezas, complejidad y plazos. Después de la llamada te envío una propuesta con el valor exacto.</p></details>
       <details><summary>¿Cuánto tardan las entregas?</summary><p>Se define en la propuesta según el volumen del proyecto. Siempre acordamos fechas antes de empezar.</p></details>
@@ -207,7 +223,7 @@
   <!-- CONTACTO -->
   <section class="section contact" id="contacto">
     <div class="section-head reveal">
-      <h2>Agendá una llamada de 20 minutos</h2>
+      <h2>Agendá una <em>llamada</em> de 20 minutos</h2>
       <p>Elegí el día y la hora que te quede cómodo. Hablamos de tu objetivo y te cuento si puedo ayudarte. Sin compromiso.</p>
     </div>
     <div class="booking reveal">
@@ -230,7 +246,7 @@
   <p>© <span id="year"></span> Ciro. Todos los derechos reservados.</p>
   <div class="footer-links">
     <a href="https://instagram.com/ciroiar" target="_blank" rel="noopener">Instagram @ciroiar</a>
-    <a href="mailto:hola@ciroiar.com">hola@ciroiar.com</a>
+    <a id="mailLink" href="#" hidden></a>
   </div>
 </footer>
 
