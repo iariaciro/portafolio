@@ -100,19 +100,6 @@ soundBtn.addEventListener('click', () => {
   soundBtn.textContent = tl.muted ? 'Activar sonido' : 'Silenciar';
 });
 
-/* ===== Calendario de reservas =====
-   Google Calendar > Crear > Programación de citas. Al publicarla, copiá el enlace
-   (el de "insertar en tu sitio web" o el enlace público) y pegalo acá. */
-const CALENDAR_URL = ''; // ej: 'https://calendar.google.com/calendar/appointments/schedules/XXXX?gv=true'
-if (/^https:\/\//.test(CALENDAR_URL)) { // solo acepta enlaces https
-  const f = document.createElement('iframe');
-  f.src = CALENDAR_URL; f.title = 'Agendar llamada'; f.loading = 'lazy';
-  f.referrerPolicy = 'strict-origin-when-cross-origin';
-  f.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox');
-  f.style.cssText = 'border:0;width:100%;height:100%;min-height:620px';
-  document.getElementById('bookingFrame').replaceChildren(f);
-}
-
 /* ===== Email de contacto: no está escrito en el HTML, se arma acá (evita bots que recolectan correos) ===== */
 const CONTACT_EMAIL = ''; // ej: 'hola@tudominio.com'
 const mailLink = document.getElementById('mailLink');
@@ -189,7 +176,7 @@ lightbox.addEventListener('click', () => lightbox.close()); // clic en cualquier
 
 /* ===== WhatsApp: número y mensaje inicial =====
    Formato internacional, solo dígitos, sin "+", espacios ni guiones. */
-const WHATSAPP_NUMBER = ''; // ej: '5491123456789'
+const WHATSAPP_NUMBER = '542352469089'; // ej: '5491123456789'
 const WHATSAPP_MESSAGE = 'Hola Ciro, vi tu portafolio y quiero consultarte por un proyecto.';
 if (WHATSAPP_NUMBER) {
   document.getElementById('waBtn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
@@ -240,19 +227,6 @@ if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
   });
 }
 
-/* ===== Filtros del portafolio por estilo de edición ===== */
-const fchips = document.querySelectorAll('.fchip');
-fchips.forEach(btn => btn.addEventListener('click', () => {
-  fchips.forEach(o => o.setAttribute('aria-pressed', o === btn));
-  const f = btn.dataset.filter;
-  document.querySelectorAll('#portafolio .card').forEach(c => {
-    const show = f === 'todos' || c.dataset.style === f;
-    c.hidden = !show;
-    if (show) { c.classList.add('visible'); c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop'); }
-  });
-  document.querySelector('#portafolio .grid').scrollTo({ left: 0 });
-}));
-
 /* ===== Respaldo: si una miniatura no carga con .png, prueba con otras extensiones ===== */
 const exts = ['.png', '.jpg', '.jpeg', '.webp'];
 document.querySelectorAll('.card img, .stack-card img').forEach(img => {
@@ -262,6 +236,15 @@ document.querySelectorAll('.card img, .stack-card img').forEach(img => {
   };
   img.addEventListener('error', retry);
   if (img.complete && img.naturalWidth === 0 && img.src) retry();
+});
+
+/* ===== Calendly: el recuadro ajusta su altura al contenido =====
+   Calendly avisa su altura real con el evento "calendly.page_height" (la altura inicial está en styles.css). */
+const bookingFrame = document.getElementById('bookingFrame');
+addEventListener('message', e => {
+  if (e.origin !== 'https://calendly.com' || !e.data || e.data.event !== 'calendly.page_height') return;
+  const height = parseInt(e.data.payload && e.data.payload.height, 10);
+  if (height) bookingFrame.style.height = Math.max(height, 360) + 'px';
 });
 
 /* ===== Año del footer ===== */
