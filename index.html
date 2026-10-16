@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     addEventListener('pageshow', () => {
-      if (location.hash) return;
       const root = document.documentElement;
       const scrollBehavior = root.style.scrollBehavior;
       root.style.scrollBehavior = 'auto';
@@ -257,7 +257,7 @@
       <!-- CALENDLY -->
       <div class="booking-frame" id="bookingFrame">
         <div class="calendly-inline-widget"
-             data-url="https://calendly.com/iariaciro?background_color=09060f&amp;text_color=f4efff&amp;primary_color=a88aff"
+             data-url="https://calendly.com/iariaciro/reunion-45m?background_color=09060f&amp;text_color=f4efff&amp;primary_color=a88aff"
              style="width:100%;min-width:320px;"></div>
       </div>
       <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
