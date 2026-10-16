@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    addEventListener('pageshow', () => {
+      if (location.hash) return;
+      const root = document.documentElement;
+      const scrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      root.style.scrollBehavior = scrollBehavior;
+    }, { once: true });
+  </script>
   <title>Ciro | Edición de video para marcas</title>
   <meta name="description" content="Edición de reels, anuncios y videos largos para marcas y creadores. Videos para redes sociales y YouTube.">
   <meta name="theme-color" content="#09060f">
